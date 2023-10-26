@@ -1,3 +1,10 @@
+// File: A2_S8_20220008_10.cpp
+// Purpose: Solving Problem no. 10
+// Author: Ahmed Osama Fathy.
+// Section: S8
+// ID: 20220008
+// TA: Khaled Ahmed
+// Date: 26 Oct 2023
 #include <bits/stdc++.h>
 
 

@@ -1,3 +1,11 @@
+// File: A2_S8_20220008_6.cpp
+// Purpose: Solving Problem no. 6
+// Author: Mohamed Tamer Mohamed.
+// Section: S8
+// ID: 20220514
+// TA: Khaled Ahmed
+// Date: 26 Oct 2023
+
 #include <iostream>
 #include <string>
 
