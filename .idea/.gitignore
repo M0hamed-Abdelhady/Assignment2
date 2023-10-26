@@ -1,7 +1,7 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-../cmake-build-debug
+/cmake-build-debug/
 ../CMakeLists.txt
 # .clang-format
 ../CMakeLists.txt
