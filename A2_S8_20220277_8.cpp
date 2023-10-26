@@ -11,6 +11,10 @@
 
 using namespace std;
 
+void print(int &n, int x, int i) {
+
+}
+
 int main() {
     return 0;
 }
