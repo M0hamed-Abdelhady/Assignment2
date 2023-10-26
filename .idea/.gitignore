@@ -1,5 +1,12 @@
+# Default ignored files
+/shelf/
+/workspace.xml
 ../cmake-build-debug
 ../CMakeLists.txt
-../.idea
-.clang-format
-.gitignore
+# .clang-format
+../CMakeLists.txt
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
