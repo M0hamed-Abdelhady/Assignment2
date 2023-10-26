@@ -6,8 +6,8 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-/cmake-build-debug
-CMakeLists.txt
-/.idea
+../cmake-build-debug
+../CMakeLists.txt
+../.idea
 .clang-format
 .gitignore
