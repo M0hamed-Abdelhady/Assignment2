@@ -1,4 +1,15 @@
-#include <bits/stdc++.h>
+/*
+    File: A2_S8_20220277_2.cpp
+    Purpose: Solving Problem 2
+    Author: Mohamed Ahmed Abdelhady
+    Section: S8
+    ID: 20220008
+    TA: Khaled Ahmed
+    Date: 26 Oct 2023
+*/
+#include <iostream>
+#include <string>
+#include <map>
 
 using namespace std;
 
