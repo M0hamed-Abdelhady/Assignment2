@@ -3,7 +3,7 @@
     Purpose: Solving Problem 5
     Author: Mohamed Ahmed Abdelhady
     Section: S8
-    ID: 20220008
+    ID: 20220277
     TA: Khaled Ahmed
     Date: 26 Oct 2023
 */
@@ -58,7 +58,7 @@ void showTop10() {
     if (top10.empty())return void(cout << "Empty!\n");
     int j = 0;
     for (auto i = top10.begin(); i != top10.end() && j < 10; ++i, ++j)
-        cout << j + 1 << ". Name: " << i->second << "Score: " << i->first << '\n';
+        cout << j + 1 << ". Name: " << i->second << " --- Score: " << i->first << '\n';
 }
 
 string inputName(bool exist = false) {
@@ -101,7 +101,7 @@ void getPlayerHighScore(string &name) {
     if (!check(name))
         cout << "Player isn't in the Top 10 List, his highest score is " << all[name].getHighScore() << '\n';
     else
-        cout << "Player's Rank is " << getRank(name) << "in Top 10 List and his highest score is "
+        cout << "Player's Rank is " << getRank(name) << " in the Top 10 List and his highest score is "
              << all[name].getHighScore() << '\n';
 }
 
@@ -149,7 +149,6 @@ int main() {
         int choice = runMenu(menu);
         if (choice == 1) showTop10();
         else if (choice == 2) {
-            cout << "Input Player Name:";
             string name = inputName(true);
             getPlayerHighScore(name);
         } else if (choice == 3) {
