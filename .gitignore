@@ -8,3 +8,6 @@
 /dataSources.local.xml
 /cmake-build-debug
 CMakeLists.txt
+/.idea
+.clang-format
+.gitignore
