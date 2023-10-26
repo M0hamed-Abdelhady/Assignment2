@@ -44,7 +44,8 @@ public:
             this->setAt(registerAddress, secondByte);
         } else if (op == Operation::STORE) {
             memory->setAt(secondByte, this->fetch(registerAddress));
-//            std::cout << hex << "Data: " << uppercase << this->fetch(registerAddress) << endl;
+            if (secondByte == 0)
+                std::cout << hex << "Data: " << uppercase << this->fetch(registerAddress) << dec << endl;
         } else if (op == Operation::MOVE) {
             int firstRegister = (secondByte >> 4);
             int secondRegister = secondByte & 0x0f;
