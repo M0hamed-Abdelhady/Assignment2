@@ -26,6 +26,11 @@ public:
             throw invalid_argument("Value can not fit in one Byte");
         (*innerMemory)[pos] = (Byte) value;
     }
+    virtual void setAt(int pos, Byte value) {
+        if (value > UCHAR_MAX)
+            throw invalid_argument("Value can not fit in one Byte");
+        (*innerMemory)[pos] = (Byte) value;
+    }
     virtual int fetch(int pos) {
         return (int) (*innerMemory)[pos];
     }

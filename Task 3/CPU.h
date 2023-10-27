@@ -22,11 +22,28 @@ private:
         JUMP = 0x0B,
         HALT = 0x0C
     };
+    typedef union {
+        uint8_t integer;
+        struct
+        {
+            /*
+             * Order is important.
+             * Here the members of the union data structure use the same memory (8 bits).
+             * The ordering is taken
+             * from the LSB to the MSB.
+             */
+            unsigned int mantissa : 4;
+            unsigned int exponent : 3; // Exp in Excess 4 Notation
+            unsigned int sign : 1;
+
+        } raw;
+    } myFloat;
+
     shared_ptr<Memory> memory;
 
 
 public:
-    CPU(shared_ptr<Memory> &memory, int size = 1e5) : IMemory(size), memory(memory), programCounter(0) {}
+    explicit CPU(shared_ptr<Memory> &memory, int size = 1e5) : IMemory(size), memory(memory), programCounter(0) {}
 
     bool execute() {
         /// 1. Fetch
@@ -60,9 +77,16 @@ public:
         } else if (op == Operation::ADDFLOAT) {
             int firstRegister = (secondByte >> 4);
             int secondRegister = (secondByte & 0x0f);
-            double dataInFirstRegister = this->fetch(firstRegister);
-            double dataInSecondRegister = this->fetch(secondRegister);
-            this->setAt(registerAddress, dataInFirstRegister + dataInSecondRegister);
+            Byte dataInFirstRegister = this->fetch(firstRegister);
+            Byte dataInSecondRegister = this->fetch(secondRegister);
+            myFloat f1, f2;
+            f1.raw.sign = dataInFirstRegister >> 7;
+            f1.raw.exponent = (dataInFirstRegister & 0b01110000) >> 4;
+            f1.raw.mantissa = (dataInFirstRegister & 0b00001111);
+            f2.raw.sign = dataInSecondRegister >> 7;
+            f2.raw.exponent = (dataInSecondRegister & 0b01110000) >> 4;
+            f2.raw.mantissa = (dataInSecondRegister & 0b00001111);
+            this->setAt(registerAddress, (Byte)(f1.integer + f2.integer));
         } else if (op == Operation::JUMP) {
             int dataInRegister = this->fetch(registerAddress);
             if (dataInRegister == this->fetch(0))
