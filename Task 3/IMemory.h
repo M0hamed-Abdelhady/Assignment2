@@ -11,7 +11,7 @@ protected:
     shared_ptr<vector<Byte>> innerMemory;
 
 public:
-    explicit IMemory(int size = 1e5) {
+    explicit IMemory(int size = 0xff + 1) {
         innerMemory = std::make_shared<vector<Byte>>(size);
     }
     virtual ~IMemory() {

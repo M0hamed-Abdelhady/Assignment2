@@ -14,7 +14,6 @@ public:
     void read(ifstream &file) {
         int x;
         int ptr = 0;
-
         while (file >> hex >> x) {
             int firstByte = (x & 0xff00) >> 8;
             int secondByte = x & 0x00ff;
