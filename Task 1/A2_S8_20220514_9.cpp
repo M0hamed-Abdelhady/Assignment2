@@ -7,6 +7,7 @@
 // Date: 26 Oct 2023
 
 #include <iostream>
+#include <map>
 
 using namespace std;
 
@@ -27,16 +28,18 @@ public:
             return 1;
         if (n < 42)
             return 0;
+
         bool ret = 0;
         if (n % 2 == 0)
             ret |= bears(n / 2);
         if (n % 3 == 0 || n % 4 == 0) {
             int firstDigit = n % 10;
             int secondDigit = (n / 10) % 10;
-            ret |= bears(firstDigit * secondDigit);
+            if (firstDigit * secondDigit > 0)
+                ret |= bears(n - firstDigit * secondDigit);
         }
         if (n % 5 == 0)
-            ret = 1;
+            ret |= bears(n - 42);
         return ret;
     }
 
