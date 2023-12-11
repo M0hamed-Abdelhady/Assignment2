@@ -67,17 +67,17 @@ int main() {
 
     freopen("email.txt", "r", stdin);
     string line;
+    int totalValue = 0;
     while (cin >> line) {
         auto words = split(line, " ");
-        int totalValue = 0;
         for (auto word: words)
             if (value.count(word))
                 totalValue += value[word];
-        if (totalValue >= 15)
-            cout << "Phishing Email.";
-        else
-            cout << "Valid Email";
     }
+    if (totalValue >= 15)
+        cout << "Phishing Email.";
+    else
+        cout << "Valid Email";
     return 0;
 }
 // the program detected some emails from my spam emails to be phishing emails and didn't detect others
