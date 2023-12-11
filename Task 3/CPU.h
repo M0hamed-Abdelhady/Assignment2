@@ -40,7 +40,6 @@ private:
 
         } raw;
     } myFloat;
-
     shared_ptr<Memory> memory;
 
 
